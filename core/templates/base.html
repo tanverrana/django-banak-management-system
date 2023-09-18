@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.css">
 </head>
 
-<body>
+<body class="bg-indigo-600">
     {% include 'navbar.html' %}
     <div>
         {% block body %}
-
+        <div class="lg:container lg:max-auto" id="main">
+            {% block content %}{% endblock %}
+        </div>
         {% endblock %}
     </div>
 </body>
