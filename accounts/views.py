@@ -9,9 +9,10 @@ from django.urls import reverse_lazy
 class UserRegistrationView(FormView):
     template_name = 'accounts/user_registration.html'
     form_class = UserRegistrationForm
-    success_url = reverse_lazy('reverse')
+    success_url = reverse_lazy('register')
 
     def form_valid(self, form):
+        print(form.cleaned_data)
         user = form.save()
-        login(user)
+        login(self.request, user)
         return super().form_valid(form)
