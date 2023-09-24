@@ -26,8 +26,7 @@ class TransactionCreateMixin(LoginRequiredMixin, CreateView):
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs.update({
-            'account': self.request.user.account
-        })
+            'account': self.request.user.account})
         return kwargs
 
     def get_context_data(self, **kwargs):
