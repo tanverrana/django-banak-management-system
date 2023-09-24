@@ -51,3 +51,9 @@ class WithdrawForm(TransactionForm):
                 f'You have {balance} $ in your account.' 'You can not withdraw more than your account balace'
             )
         return amount
+
+
+class LoanRequestForm(TransactionForm):
+    def clean_amount(self):
+        amount = self.cleaned_data.get('amount')
+        return amount
